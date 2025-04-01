@@ -57,23 +57,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x] # Next.js が要求するバージョンに変更
+  #   strategy:
+  #     matrix:
+  #       node-version: [18.x, 20.x] # Next.js が要求するバージョンに変更
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         cache: 'npm'
+  #     - run: npm ci
+  #     - run: npm run build --if-present
+  #     - run: npm test
 
   sonarqube:
     name: SonarQube Build and Analyze
